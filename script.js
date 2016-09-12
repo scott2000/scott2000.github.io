@@ -66,9 +66,17 @@ function listFactors(number) {
 $(document).ready(function() {
     var curr = new Date().getTime()/1000 | 0;
     var last = curr-parseInt(getCookie('last'));
-    setCookie('last', curr, 365);
+    setCookie('last', curr, 1000);
     if (last !== '') {
-        $('#counter').html('You last visited '+last+' seconds ago.');
+        if (last < 60) {
+            $('#counter').html('You last visited '+last+' seconds ago.');
+        } else if (last < 60*60) {
+            $('#counter').html('You last visited '+(last/60 | 0)+' minutes ago.');
+        } else if (last < 60*60*60) {
+            $('#counter').html('You last visited '+(last/(60*60) | 0)+' hours ago.');
+        } else if (last < 60*60*60*24) {
+            $('#counter').html('You last visited '+(last/(60*60*24) | 0)+' days ago.');
+        }
     }
 
     $('#menu').accordion();
