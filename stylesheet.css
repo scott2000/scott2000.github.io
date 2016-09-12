@@ -1,0 +1,12 @@
+input {
+    outline-color: #008800;
+}
+
+.abcBox {
+    width: 32px;
+    text-align: right;
+}
+
+#css {
+    color: darkblue;
+}
