@@ -64,9 +64,9 @@ function listFactors(number) {
 }
 
 $(document).ready(function() {
-    var curr = new Date().getTime()/1000;
+    var curr = new Date().getTime()/1000 | 0;
     var last = curr-parseInt(getCookie('last'));
-    setCookie('last', curr | 0, 365);
+    setCookie('last', curr, 365);
     if (last !== '') {
         $('#counter').html('You last visited '+last+' seconds ago.');
     }
