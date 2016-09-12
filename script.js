@@ -84,7 +84,6 @@ $(document).ready(function() {
     });
 
     // Polynomial Factorer
-
     $('#submitFactor').click(function() {
         var a = $('input[name=a]').val();
         var b = $('input[name=b]').val();
@@ -176,17 +175,5 @@ $(document).ready(function() {
             $('input[name=b]').val('');
             $('input[name=c]').val('');
         }
-    });
-
-    // Minecraft Skins
-
-    $('#submitSkin').click(function() {
-        var skin = $('input[name=skin]').val();
-        console.log('Getting skin for "' + skin + '"');
-        $('#skinPic').remove();
-        $('#skinAppend').after('<img id="skinPic" src="http://s3.amazonaws.com/MinecraftSkins/' + skin + '.png"/>');
-         document.getElementById("skinPic").height *= 2;
-         document.getElementById("skinPic").width *= 2;
-        $('input[name=skin]').val('');
     });
 });
