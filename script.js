@@ -72,9 +72,9 @@ $(document).ready(function() {
             $('#counter').html('You last visited '+last+' seconds ago.');
         } else if (last < 60*60) {
             $('#counter').html('You last visited '+(last/60 | 0)+' minutes ago.');
-        } else if (last < 60*60*60) {
+        } else if (last < 60*60*24) {
             $('#counter').html('You last visited '+(last/(60*60) | 0)+' hours ago.');
-        } else if (last < 60*60*60*24) {
+        } else {
             $('#counter').html('You last visited '+(last/(60*60*24) | 0)+' days ago.');
         }
     }
