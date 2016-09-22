@@ -65,10 +65,19 @@ function listFactors(number) {
 
 function a(vo, v, x, t) {
     if (v === '') {
+        vo = parseFloat(vo);
+        x = parseFloat(x);
+        t = parseFloat(t);
         return ((2*x) - (2*vo*t))/(t*t);
     } else if (t === '') {
-        return ((v*v)-(vo*vo))/(2*d);
+        vo = parseFloat(vo);
+        v = parseFloat(v);
+        x = parseFloat(x);
+        return ((v*v)-(vo*vo))/(2*x);
     }
+    vo = parseFloat(vo);
+    v = parseFloat(v);
+    t = parseFloat(t);
     return (v-vo)/t;
 }
 
