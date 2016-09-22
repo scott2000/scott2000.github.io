@@ -64,9 +64,6 @@ function listFactors(number) {
 }
 
 function a(vo, v, x, t) {
-    // if (vo === '') {
-    //     vo = initialV('', v, x, t);
-    // }
     if (v === '') {
         return ((2*x) - (2*vo*t))/(t*t);
     } else if (t === '') {
@@ -91,13 +88,10 @@ function initialV(a, v, x, t) {
 }
 
 function v(a, vo, x, t) {
-    // if (vo === '') {
-    //     vo = initialV(a, '', x, t);
-    // }
     if (a === '') {
         return ((2*x)/t)-vo;
     } else if (t === '') {
-        var v = Math.sqrt((vo*vo)+(2*a*x));
+        var v = Math.sqrt(Math.abs((vo*vo)+(2*a*x)));
         if (a < 0) {
             v = -v;
         }
@@ -107,9 +101,6 @@ function v(a, vo, x, t) {
 }
 
 function x(a, vo, v, t) {
-    // if (vo === '') {
-    //     vo = initialV(a, v, '', t);
-    // }
     if (v === '') {
         return (vo*t)+((a*t*t)/2);
     } else if (t === '') {
@@ -119,11 +110,6 @@ function x(a, vo, v, t) {
 }
 
 function t(a, vo, v2, x) {
-    // if (vo === '') {
-    //     vo = initialV(a, v, x, '');
-    // } else {
-    //     vo = parseFloat(vo);
-    // }
     if (a === '') {
         return (2*x)/(parseFloat(vo)+parseFloat(v));
     } else if (v2 === '') {
