@@ -121,12 +121,17 @@ function x(a, vo, v, t) {
 function t(a, vo, v2, x) {
     if (vo === '') {
         vo = initialV(a, v, x, '');
+    } else {
+        vo = parseFloat(vo);
     }
     if (a === '') {
-        return (2*x)/(parseFloat(vo)+parseFloat(v));
+        return (2*x)/(vo+parseFloat(v));
     } else if (v2 === '') {
         return (v(a, vo, x, '')-vo)/a
     }
+    console.log(v2);
+    console.log(vo);
+    console.log(a);
     return (v2-vo)/a;
 }
 
