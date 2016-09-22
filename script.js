@@ -95,7 +95,7 @@ function v(a, vo, x, t) {
         }
         return v;
     }
-    return (a*t)+vo;
+    return (a*t)+parseFloat(vo);
 }
 
 function x(a, vo, v, t) {
@@ -104,16 +104,12 @@ function x(a, vo, v, t) {
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*a);
     }
-    console.log(a);
-    console.log(vo);
-    console.log(v);
-    console.log(t);
-    return (t/2)*(vo+v);
+    return (t/2)*(parseFloat(vo)*+parseFloat(v));
 }
 
 function t(a, vo, v2, x) {
     if (a === '') {
-        return (2*x)/(vo+v);
+        return (2*x)/(parseFloat(vo)+parseFloat(v)));
     } else if (v2 === '') {
         return (v(a, vo, x, '')-vo)/a
     }
