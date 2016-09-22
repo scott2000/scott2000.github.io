@@ -76,16 +76,24 @@ function vo(a, v, x, t) {
     if (a === '') {
         return ((2*x)/t)-v;
     } else if (t === '') {
-        return Math.sqrt((v*v)-(2*a*x));
+        var v = Math.sqrt((v*v)-(2*a*x));
+        if (a < 0) {
+            v = -v;
+        }
+        return v;
     }
-    return vo-(a*t);
+    return v-(a*t);
 }
 
 function v(a, vo, x, t) {
     if (a === '') {
         return ((2*x)/t)-vo;
     } else if (t === '') {
-        return Math.sqrt((vo*vo)+(2*a*x));
+        var v = Math.sqrt((vo*vo)+(2*a*x));
+        if (a < 0) {
+            v = -v;
+        }
+        return v;
     }
     return (a*t)+vo;
 }
@@ -102,7 +110,7 @@ function x(a, vo, v, t) {
 function t(a, vo, v2, x) {
     if (a === '') {
         return (2*x)/(vo+v);
-    } else if (v === '') {
+    } else if (v2 === '') {
         return (v(a, vo, x, '')-vo)/a
     }
     return (v2-vo)/a;
