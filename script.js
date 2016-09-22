@@ -104,7 +104,7 @@ function x(a, vo, v, t) {
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*a);
     }
-    return (t/2)*(parseFloat(vo)*+parseFloat(v));
+    return (t/2)*(parseFloat(vo)+parseFloat(v));
 }
 
 function t(a, vo, v2, x) {
