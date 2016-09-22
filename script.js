@@ -64,13 +64,13 @@ function listFactors(number) {
 }
 
 function a(vo, v, x, t) {
-    console.log('a, '+vo+', '+v+', '+x+', '+t);
-    if (v === undefined) {
+    console.log(vo+', '+v+', '+x+', '+t);
+    if (v === '') {
         vo = parseFloat(vo);
         x = parseFloat(x);
         t = parseFloat(t);
         return ((2*x) - (2*vo*t))/(t*t);
-    } else if (t === undefined) {
+    } else if (t === '') {
         vo = parseFloat(vo);
         v = parseFloat(v);
         x = parseFloat(x);
@@ -83,40 +83,36 @@ function a(vo, v, x, t) {
 }
 
 function vo(a, v, x, t) {
-    console.log(a+', vo, '+v+', '+x+', '+t);
-    if (a === undefined) {
+    if (a === '') {
         return ((2*x)/t)-v;
-    } else if (t === undefined) {
+    } else if (t === '') {
         return Math.sqrt((v*v)-(2*a*x));
     }
     return vo-(a*t);
 }
 
 function v(a, vo, x, t) {
-    console.log(a+', '+vo+', v, '+x+', '+t);
-    if (a === undefined) {
+    if (a === '') {
         return ((2*x)/t)-vo;
-    } else if (t === undefined) {
+    } else if (t === '') {
         return Math.sqrt((vo*vo)+(2*a*x));
     }
     return (a*t)+vo;
 }
 
 function x(a, vo, v, t) {
-    console.log(a+', '+vo+', '+v+', x, '+t);
-    if (v === undefined) {
+    if (v === '') {
         return (vo*t)+((a*t*t)/2);
-    } else if (t === undefined) {
+    } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*a);
     }
     return t*(vo+v)/2;
 }
 
 function t(a, vo, v, x) {
-    console.log(a+', '+vo+', '+v+', '+x+', t');
-    if (a === undefined) {
+    if (a === '') {
         return (2*x)/(vo+v);
-    } else if (v === undefined) {
+    } else if (v === '') {
         return 2*(x-(vo*t))/a;
     }
     return (v-vo)/a;
@@ -164,7 +160,7 @@ $(document).ready(function() {
         var a = $('input[name=a]').val();
         var b = $('input[name=b]').val();
         var c = $('input[name=c]').val();
-        if(a === undefined && b === undefined && c !== '') {
+        if(a === '' && b === '' && c !== '') {
             var fval = "";
             var fi = factor(c);
             for(var i = 0; i < fi.length; i++) {
@@ -175,17 +171,17 @@ $(document).ready(function() {
             }
             $('#factorValue').html(fval);
             $('input[name=c]').val('');
-        } else if(a === undefined && b === undefined && c === undefined) {
+        } else if(a === '' && b === '' && c === '') {
             $('#factorValue').html('Enter a polynomial to factor');
         } else {
             var multiplyBefore = 1;
-            if(a === undefined) {
+            if(a === '') {
                 a = '1';
             }
-            if(b === undefined) {
+            if(b === '') {
                 b = '1';
             }
-            if(c === undefined) {
+            if(c === '') {
                 c = '1';
             }
             a = parseInt(a,10);
@@ -225,7 +221,7 @@ $(document).ready(function() {
                         if(b === 1) {
                             b = '';
                         }
-                        if(multiplyBefore === undefined) {
+                        if(multiplyBefore === '') {
                             $('#factorValue').html(a + 'x<sup>2</sup> + ' + b + 'x + ' + c + ' = (' + a2 + 'x + ' + c2 + ')(' + a1 + 'x + ' + c1 + ')');
                         } else {
                             $('#factorValue').html(multiplyBefore + '(' + a + 'x<sup>2</sup> + ' + b + 'x + ' + c + ') = ' + multiplyBefore + '(' + a2 + 'x + ' + c2 + ')(' + a1 + 'x + ' + c1 + ')');
@@ -241,7 +237,7 @@ $(document).ready(function() {
                 if(b === 1) {
                     b = '';
                 }
-                if(multiplyBefore === undefined) {
+                if(multiplyBefore === '') {
                     $('#factorValue').html('No solutions found for ' + a + 'x<sup>2</sup> + ' + b + 'x + ' + c);
                 } else {
                     $('#factorValue').html('No solutions found for ' + multiplyBefore + '(' + a + 'x<sup>2</sup> + ' + b + 'x + ' + c + ')');
@@ -260,19 +256,19 @@ $(document).ready(function() {
         var velocity = $('input[name=velocity]').val();
         var position = $('input[name=position]').val();
         var time = $('input[name=time]').val();
-        if (acceleration === undefined) {
+        if (acceleration === '') {
             $('input[name=acceleration]').val(a(initialVelocity, velocity, position, time));
         }
-        if (initialVelocity === undefined) {
+        if (initialVelocity === '') {
             $('input[name=initialVelocity]').val(vo(acceleration, velocity, position, time));
         }
-        if (velocity === undefined) {
+        if (velocity === '') {
             $('input[name=velocity]').val(v(acceleration, initialVelocity, position, time));
         }
-        if (position === undefined) {
+        if (position === '') {
             $('input[name=position]').val(x(acceleration, initialVelocity, velocity, time));
         }
-        if (time === undefined) {
+        if (time === '') {
             $('input[name=time]').val(t(acceleration, initialVelocity, velocity, position));
         }
     });
