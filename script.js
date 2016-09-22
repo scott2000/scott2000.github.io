@@ -104,7 +104,7 @@ function x(a, vo, v, t) {
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*a);
     }
-    return t*(vo+v)/2;
+    return (t/2)*(vo+v);
 }
 
 function t(a, vo, v2, x) {
