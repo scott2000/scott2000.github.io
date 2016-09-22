@@ -109,7 +109,7 @@ function x(a, vo, v, t) {
 
 function t(a, vo, v2, x) {
     if (a === '') {
-        return (2*x)/(parseFloat(vo)+parseFloat(v)));
+        return (2*x)/(parseFloat(vo)+parseFloat(v));
     } else if (v2 === '') {
         return (v(a, vo, x, '')-vo)/a
     }
