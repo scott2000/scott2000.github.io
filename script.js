@@ -69,10 +69,13 @@ function a(vo, v, x, t) {
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*x);
     }
+    if (vo === '') {
+        vo = initialV('', v, x, t);
+    }
     return (v-vo)/t;
 }
 
-function vo(a, v, x, t) {
+function initialV(a, v, x, t) {
     if (a === '') {
         return ((2*x)/t)-v;
     } else if (t === '') {
@@ -95,6 +98,9 @@ function v(a, vo, x, t) {
         }
         return v;
     }
+    if (vo === '') {
+        vo = initialV(a, '', x, t);
+    }
     return (a*t)+parseFloat(vo);
 }
 
@@ -104,6 +110,9 @@ function x(a, vo, v, t) {
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*a);
     }
+    if (vo === '') {
+        vo = initialV(a, v, '', t);
+    }
     return (t/2)*(parseFloat(vo)+parseFloat(v));
 }
 
@@ -112,6 +121,9 @@ function t(a, vo, v2, x) {
         return (2*x)/(parseFloat(vo)+parseFloat(v));
     } else if (v2 === '') {
         return (v(a, vo, x, '')-vo)/a
+    }
+    if (vo === '') {
+        vo = initialV(a, v, x, '');
     }
     return (v2-vo)/a;
 }
@@ -258,7 +270,7 @@ $(document).ready(function() {
             $('input[name=acceleration]').val(a(initialVelocity, velocity, position, time));
         }
         if (initialVelocity === '') {
-            $('input[name=initialVelocity]').val(vo(acceleration, velocity, position, time));
+            $('input[name=initialVelocity]').val(initialV(acceleration, velocity, position, time));
         }
         if (velocity === '') {
             $('input[name=velocity]').val(v(acceleration, initialVelocity, position, time));
