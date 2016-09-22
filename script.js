@@ -79,7 +79,7 @@ function initialV(a, v, x, t) {
     if (a === '') {
         return ((2*x)/t)-v;
     } else if (t === '') {
-        var v = Math.sqrt((v*v)-(2*a*x));
+        var v = Math.sqrt(Math.abs((v*v)-(2*a*x)));
         if (a < 0) {
             v = -v;
         }
