@@ -64,7 +64,7 @@ function listFactors(number) {
 }
 
 function a(vo, v, x, t) {
-    console.log(vo+', '+v+', '+x+', '+t);
+    console.log('a, '+vo+', '+v+', '+x+', '+t);
     if (v === undefined) {
         vo = parseFloat(vo);
         x = parseFloat(x);
@@ -83,6 +83,7 @@ function a(vo, v, x, t) {
 }
 
 function vo(a, v, x, t) {
+    console.log(a+', vo, '+v+', '+x+', '+t);
     if (a === undefined) {
         return ((2*x)/t)-v;
     } else if (t === undefined) {
@@ -92,6 +93,7 @@ function vo(a, v, x, t) {
 }
 
 function v(a, vo, x, t) {
+    console.log(a+', '+vo+', v, '+x+', '+t);
     if (a === undefined) {
         return ((2*x)/t)-vo;
     } else if (t === undefined) {
@@ -101,6 +103,7 @@ function v(a, vo, x, t) {
 }
 
 function x(a, vo, v, t) {
+    console.log(a+', '+vo+', '+v+', x, '+t);
     if (v === undefined) {
         return (vo*t)+((a*t*t)/2);
     } else if (t === undefined) {
@@ -110,6 +113,7 @@ function x(a, vo, v, t) {
 }
 
 function t(a, vo, v, x) {
+    console.log(a+', '+vo+', '+v+', '+x+', t');
     if (a === undefined) {
         return (2*x)/(vo+v);
     } else if (v === undefined) {
