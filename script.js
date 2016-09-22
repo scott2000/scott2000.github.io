@@ -84,6 +84,8 @@ function initialV(a, v, x, t) {
             v = -v;
         }
         return v;
+    } else if (v == '') {
+        return ((a*t)/2)+(x/t);
     }
     return v-(a*t);
 }
