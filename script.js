@@ -64,9 +64,9 @@ function listFactors(number) {
 }
 
 function a(vo, v, x, t) {
-    if (vo === '') {
-        vo = initialV('', v, x, t);
-    }
+    // if (vo === '') {
+    //     vo = initialV('', v, x, t);
+    // }
     if (v === '') {
         return ((2*x) - (2*vo*t))/(t*t);
     } else if (t === '') {
@@ -91,9 +91,9 @@ function initialV(a, v, x, t) {
 }
 
 function v(a, vo, x, t) {
-    if (vo === '') {
-        vo = initialV(a, '', x, t);
-    }
+    // if (vo === '') {
+    //     vo = initialV(a, '', x, t);
+    // }
     if (a === '') {
         return ((2*x)/t)-vo;
     } else if (t === '') {
@@ -107,9 +107,9 @@ function v(a, vo, x, t) {
 }
 
 function x(a, vo, v, t) {
-    if (vo === '') {
-        vo = initialV(a, v, '', t);
-    }
+    // if (vo === '') {
+    //     vo = initialV(a, v, '', t);
+    // }
     if (v === '') {
         return (vo*t)+((a*t*t)/2);
     } else if (t === '') {
@@ -119,19 +119,16 @@ function x(a, vo, v, t) {
 }
 
 function t(a, vo, v2, x) {
-    if (vo === '') {
-        vo = initialV(a, v, x, '');
-    } else {
-        vo = parseFloat(vo);
-    }
+    // if (vo === '') {
+    //     vo = initialV(a, v, x, '');
+    // } else {
+    //     vo = parseFloat(vo);
+    // }
     if (a === '') {
-        return (2*x)/(vo+parseFloat(v));
+        return (2*x)/(parseFloat(vo)+parseFloat(v));
     } else if (v2 === '') {
         return (v(a, vo, x, '')-vo)/a
     }
-    console.log(v2);
-    console.log(vo);
-    console.log(a);
     return (v2-vo)/a;
 }
 
@@ -168,7 +165,7 @@ $(document).ready(function() {
         console.log('Calculating Tip for ' + subtotal);
         var tip = Math.floor((subtotal * 20))*0.01;
         console.log('Tip is ' + tip);
-        $('#tipValue').html('Tip: ' + tip);
+        $('#tipValue').html('Tip: ' + tip.toFixed(2));
         $('input[name=subtotal]').val('');
     });
 
@@ -273,11 +270,12 @@ $(document).ready(function() {
         var velocity = $('input[name=velocity]').val();
         var position = $('input[name=position]').val();
         var time = $('input[name=time]').val();
+        if (initialVelocity === '') {
+            initialVelocity = initialV(acceleration, velocity, position, time);
+            $('input[name=initialVelocity]').val(initialVelocity.toFixed(2));
+        }
         if (acceleration === '') {
             $('input[name=acceleration]').val(a(initialVelocity, velocity, position, time).toFixed(2));
-        }
-        if (initialVelocity === '') {
-            $('input[name=initialVelocity]').val(initialV(acceleration, velocity, position, time).toFixed(2));
         }
         if (velocity === '') {
             $('input[name=velocity]').val(v(acceleration, initialVelocity, position, time).toFixed(2));
