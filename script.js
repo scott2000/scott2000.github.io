@@ -104,6 +104,10 @@ function x(a, vo, v, t) {
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*a);
     }
+    console.log(a);
+    console.log(vo);
+    console.log(v);
+    console.log(t);
     return (t/2)*(vo+v);
 }
 
