@@ -64,6 +64,7 @@ function listFactors(number) {
 }
 
 function a(vo, v, x, t) {
+    console.log(vo+', '+v+', '+x+', '+t);
     if (v === '') {
         vo = parseFloat(vo);
         x = parseFloat(x);
