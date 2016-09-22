@@ -66,45 +66,37 @@ function listFactors(number) {
 function a(vo, v, x, t) {
     if (v === '') {
         return ((2*x) - (2*vo*t))/(t*t);
-    } else if (x === '') {
-        return (v-vo)/t;
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*d);
     }
-    return '?';
+    return (v-vo)/t;
 }
 
 function vo(a, v, x, t) {
     if (a === '') {
         return ((2*x)/t)-v;
-    } else if (x === '') {
-        return vo-(a*t);
     } else if (t === '') {
         return Math.sqrt((v*v)-(2*a*x));
     }
-    return '?';
+    return vo-(a*t);
 }
 
 function v(a, vo, x, t) {
     if (a === '') {
         return ((2*x)/t)-vo;
-    } else if (x === '') {
-        return (a*t)+vo;
     } else if (t === '') {
         return Math.sqrt((vo*vo)+(2*a*x));
     }
-    return '?';
+    return (a*t)+vo;
 }
 
 function x(a, vo, v, t) {
-    if (a === '') {
-        return t*(vo+v)/2;
-    } else if (v === '') {
+    if (v === '') {
         return (vo*t)+((a*t*t)/2);
     } else if (t === '') {
         return ((v*v)-(vo*vo))/(2*a);
     }
-    return '?';
+    return t*(vo+v)/2;
 }
 
 function t(a, vo, v, x) {
@@ -112,10 +104,8 @@ function t(a, vo, v, x) {
         return (2*x)/(vo+v);
     } else if (v === '') {
         return 2*(x-(vo*t))/a;
-    } else if (x === '') {
-        return (v-vo)/a;
     }
-    return '?';
+    return (v-vo)/a;
 }
 
 $(document).ready(function() {
@@ -260,16 +250,16 @@ $(document).ready(function() {
             $('input[name=acceleration]').val(a(initialVelocity, velocity, position, time));
         }
         if (initialVelocity === '') {
-            $('input[name=acceleration]').val(vo(acceleration, velocity, position, time));
+            $('input[name=initialVelocity]').val(vo(acceleration, velocity, position, time));
         }
         if (velocity === '') {
-            $('input[name=acceleration]').val(v(acceleration, initialVelocity, position, time));
+            $('input[name=velocity]').val(v(acceleration, initialVelocity, position, time));
         }
         if (position === '') {
-            $('input[name=acceleration]').val(x(acceleration, initialVelocity, velocity, time));
+            $('input[name=position]').val(x(acceleration, initialVelocity, velocity, time));
         }
         if (time === '') {
-            $('input[name=acceleration]').val(t(acceleration, initialVelocity, velocity, position));
+            $('input[name=time]').val(t(acceleration, initialVelocity, velocity, position));
         }
     });
 
