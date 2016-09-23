@@ -124,15 +124,15 @@ $(document).ready(function() {
     setCookie('last', curr, 1000);
     if (last !== '') {
         if (last < 60) {
-            $('#counter').html('You last visited '+last+' seconds ago.<br>');
+            $('#counter').html('<p>You last visited '+last+' seconds ago.</p>');
         } else if (last < 60*60) {
-            $('#counter').html('You last visited '+(last/60 | 0)+' minutes ago.<br>');
+            $('#counter').html('<p>You last visited '+(last/60 | 0)+' minutes ago.</p>');
         } else if (last < 60*60*24) {
-            $('#counter').html('You last visited '+(last/(60*60) | 0)+' hours ago.<br>');
+            $('#counter').html('<p>You last visited '+(last/(60*60) | 0)+' hours ago.</p>');
         } else if (last < 31557600) {
-            $('#counter').html('You last visited '+(last/(60*60*24) | 0)+' days ago.<br>');
+            $('#counter').html('<p>You last visited '+(last/(60*60*24) | 0)+' days ago.</p>');
         } else {
-            $('#counter').html('You last visited over a year ago.<br>');
+            $('#counter').html('<p>You last visited over a year ago.<br>');
         }
     }
 
