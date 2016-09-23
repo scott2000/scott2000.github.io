@@ -160,18 +160,7 @@ $(document).ready(function() {
         var a = $('input[name=a]').val();
         var b = $('input[name=b]').val();
         var c = $('input[name=c]').val();
-        if(a === '' && b === '' && c !== '') {
-            var fval = "";
-            var fi = factor(c);
-            for(var i = 0; i < fi.length; i++) {
-                if(i !== 0) {
-                    fval += ", ";
-                }
-                fval += "(" + fi[i][0] + ", " + fi[i][1] + ")";
-            }
-            $('#factorValue').html(fval);
-            $('input[name=c]').val('');
-        } else if(a === '' && b === '' && c === '') {
+        if(a === '' && b === '' && c === '') {
             $('#factorValue').html('Enter a polynomial to factor');
         } else {
             var multiplyBefore = 1;
@@ -199,15 +188,15 @@ $(document).ready(function() {
             var aFactor = factor(a);
             var cFactor = factor(c);
             var done = false;
-            for(var ai = 0; ai < aFactor.length; ai++) {
+            for(var ai = 0; ai < aFactor.length && ai !== -1; ai++) {
                 var a1 = aFactor[ai][0];
                 var a2 = aFactor[ai][1];
-                for(var ci = 0; ci < cFactor.length; ci++) {
+                for(var ci = 0; ci < cFactor.length && ci !== -1; ci++) {
                     var c1 = cFactor[ci][0];
                     var c2 = cFactor[ci][1];
                     if((parseInt(a1*c2, 10) + parseInt(a2*c1, 10)) === b) {
-                        ai = 1000;
-                        ci = 1000;
+                        ai = -1;
+                        ci = -1
                         done = true;
                         if(parseInt(a1,10) === 1) {
                             a1 = '';
@@ -256,26 +245,48 @@ $(document).ready(function() {
         var velocity = $('input[name=velocity]').val();
         var position = $('input[name=position]').val();
         var time = $('input[name=time]').val();
-        if (initialVelocity === '') {
-            initialVelocity = initialV(acceleration, velocity, position, time);
-            $('input[name=initialVelocity]').val(initialVelocity.toFixed(2));
-        }
+        var empties = 0;
         if (acceleration === '') {
-            $('input[name=acceleration]').val(a(initialVelocity, velocity, position, time).toFixed(2));
+            empties++;
+        }
+        if (initialVelocity === '') {
+            empties++;
         }
         if (velocity === '') {
-            $('input[name=velocity]').val(v(acceleration, initialVelocity, position, time).toFixed(2));
+            empties++;
         }
         if (position === '') {
-            $('input[name=position]').val(x(acceleration, initialVelocity, velocity, time).toFixed(2));
+            empties++;
         }
         if (time === '') {
-            $('input[name=time]').val(t(acceleration, initialVelocity, velocity, position).toFixed(2));
+            empties++;
+        }
+        if (empties > 2) {
+            $('#kinematicWarning').css("color", "darkred");
+        } else {
+            $('#kinematicWarning').css("color", "black");
+            if (initialVelocity === '') {
+                initialVelocity = initialV(acceleration, velocity, position, time);
+                $('input[name=initialVelocity]').val(initialVelocity.toFixed(2));
+            }
+            if (acceleration === '') {
+                $('input[name=acceleration]').val(a(initialVelocity, velocity, position, time).toFixed(2));
+            }
+            if (velocity === '') {
+                $('input[name=velocity]').val(v(acceleration, initialVelocity, position, time).toFixed(2));
+            }
+            if (position === '') {
+                $('input[name=position]').val(x(acceleration, initialVelocity, velocity, time).toFixed(2));
+            }
+            if (time === '') {
+                $('input[name=time]').val(t(acceleration, initialVelocity, velocity, position).toFixed(2));
+            }
         }
     });
 
     //Kinematic Equation Clear
     $('#clearKinematic').click(function() {
+        $('#kinematicWarning').css("color", "black");
         $('input[class=kinematicBox]').val('');
     });
 });

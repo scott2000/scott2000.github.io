@@ -18,24 +18,24 @@
             </div>
             <h3>Tip Calculator</h3>
             <div id="tip">
-                Subtotal: <input type="text" name="subtotal"/> <button id="submitSubtotal">Calculate</button>
+                Subtotal: <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="subtotal"/> <button id="submitSubtotal">Calculate</button>
                 <p id="tipValue">Enter your subtotal.</p>
             </div>
             <h3>Polynomial Factorer</h3>
             <div id="factor">
-                <input type="text" name="a" class="abcBox"/>x<sup>2</sup> + <input type="text" name="b" class="abcBox"/>x + <input type="text" name="c" class="abcBox"/>
+                <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="a" class="abcBox"/>x<sup>2</sup> + <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="b" class="abcBox"/>x + <input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="c" class="abcBox"/>
                 <button id="submitFactor">Calculate</button>
                 <p id="factorValue">Enter a polynomial to factor.</p>
             </div>
             <h3>Kinematic Equation Solver</h3>
             <div id="kinematic">
-                <p>Enter all known variables and click Calculate. <em>(At least 3 variables must be known.)</em></p>
+                <p>Enter all known variables and click Calculate. <em id="kinematicWarning">(At least 3 variables must be known.)</em></p>
                 <table>
-                    <tr><td class="kinematicLabel">Acceleration</td><td><input type="text" name="acceleration" class="kinematicBox"/> m/s<sup>2</sup></td></tr>
-                    <tr><td class="kinematicLabel">Initial Velocity</td><td><input type="text" name="initialVelocity" class="kinematicBox"/> m/s</td></tr>
-                    <tr><td class="kinematicLabel">Final Velocity</td><td><input type="text" name="velocity" class="kinematicBox"/> m/s</td></tr>
-                    <tr><td class="kinematicLabel">Position</td><td><input type="text" name="position" class="kinematicBox"/> m</td></tr>
-                    <tr><td class="kinematicLabel">Time</td><td><input type="text" name="time" class="kinematicBox"/> s</td></tr>
+                    <tr><td class="kinematicLabel">Acceleration</td><td><input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="acceleration" class="kinematicBox"/> m/s<sup>2</sup></td></tr>
+                    <tr><td class="kinematicLabel">Initial Velocity</td><td><input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="initialVelocity" class="kinematicBox"/> m/s</td></tr>
+                    <tr><td class="kinematicLabel">Final Velocity</td><td><input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="velocity" class="kinematicBox"/> m/s</td></tr>
+                    <tr><td class="kinematicLabel">Position</td><td><input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="position" class="kinematicBox"/> m</td></tr>
+                    <tr><td class="kinematicLabel">Time</td><td><input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="time" class="kinematicBox"/> s</td></tr>
                     <tr><td><button id="submitKinematic">Calculate</button></td><td><button id="clearKinematic">Clear</button></td></tr>
                 </table>
             </div>
