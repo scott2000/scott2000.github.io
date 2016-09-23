@@ -136,7 +136,7 @@ $(document).ready(function() {
         }
     }
 
-    $('#menu').accordion();
+    $('#menu').accordion({heightStyle: "content"});
     console.log('Ready for input');
 
     $('#js').hover(function() {
