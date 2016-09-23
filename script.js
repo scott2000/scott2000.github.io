@@ -119,6 +119,8 @@ function t(a, vo, v2, x) {
 }
 
 $(document).ready(function() {
+    $('#menu').accordion({heightStyle: "content"});
+
     var curr = new Date().getTime()/1000 | 0;
     var last = curr-parseInt(getCookie('last'));
     setCookie('last', curr, 1000);
@@ -132,12 +134,31 @@ $(document).ready(function() {
         } else if (last < 31557600) {
             $('#counter').html('<p>You last visited '+(last/(60*60*24) | 0)+' days ago.</p>');
         } else {
-            $('#counter').html('<p>You last visited over a year ago.<br>');
+            $('#counter').html('<p>You last visited over a year ago.</p>');
         }
     }
 
-    $('#menu').accordion({heightStyle: "content"});
-    console.log('Ready for input');
+    $('.subtotal').keypress(function (e) {
+        if (e.keyCode === 13) {
+            $('#submitSubtotal').click();
+        }
+    });
+
+    $('.abcBox').keypress(function (e) {
+        if (e.keyCode === 13) {
+            $('#submitFactor').click();
+        }
+    });
+
+    $('.kinematicBox').keypress(function (e) {
+        if (e.keyCode === 13) {
+                if ( $('input[name=acceleration]').val() !== '' && $('input[name=initialVelocity]').val() !== '' && $('input[name=velocity]').val() !== '' && $('input[name=position]').val() !== '' && $('input[name=time]').val() !== '') {
+                    $('#clearKinematic').click();
+                } else {
+                    $('#submitKinematic').click();
+                }
+        }
+    });
 
     $('#js').hover(function() {
         $(this).fadeTo('fast',0);
@@ -289,4 +310,6 @@ $(document).ready(function() {
         $('#kinematicWarning').css("color", "black");
         $('input[class=kinematicBox]').val('');
     });
+
+    console.log('Ready for input');
 });
