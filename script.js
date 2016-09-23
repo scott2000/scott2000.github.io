@@ -176,7 +176,7 @@ $(document).ready(function() {
             a = parseInt(a,10);
             b = parseInt(b,10);
             c = parseInt(c,10);
-            if(b % a === 0 && c % a === 0 && a !== 1) {
+            if(b % a === 0 && c % a === 0 && a !== 1 && a !== 0) {
                 multiplyBefore = a;
             }
             a /= multiplyBefore;
@@ -194,9 +194,9 @@ $(document).ready(function() {
                 for(var ci = 0; ci < cFactor.length && ci !== -1; ci++) {
                     var c1 = cFactor[ci][0];
                     var c2 = cFactor[ci][1];
-                    if((parseInt(a1*c2, 10) + parseInt(a2*c1, 10)) === b) {
-                        ai = -1;
-                        ci = -1
+                    if(a1*c2 + a2*c1 === b) {
+                        ai = -2;
+                        ci = -2;
                         done = true;
                         if(parseInt(a1,10) === 1) {
                             a1 = '';
