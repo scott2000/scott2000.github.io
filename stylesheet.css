@@ -12,6 +12,11 @@ input {
     text-align: right;
 }
 
+.kinematicLabel {
+    text-align: right;
+    font-style: oblique;
+}
+
 #css {
     color: darkblue;
 }
