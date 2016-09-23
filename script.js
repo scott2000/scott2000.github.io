@@ -138,7 +138,7 @@ $(document).ready(function() {
         }
     }
 
-    $('.subtotal').keypress(function (e) {
+    $('.subtotalBox').keypress(function (e) {
         if (e.keyCode === 13) {
             $('#submitSubtotal').click();
         }
@@ -173,7 +173,8 @@ $(document).ready(function() {
         var tip = Math.floor((subtotal * 20))*0.01;
         console.log('Tip is ' + tip);
         $('#tipValue').html('Tip: ' + tip.toFixed(2));
-        $('input[name=subtotal]').val('');
+        $('input[class=subtotalBox]').val('');
+        $('input[name=subtotal]').select();
     });
 
     // Polynomial Factorer
@@ -256,6 +257,7 @@ $(document).ready(function() {
             $('input[name=a]').val('');
             $('input[name=b]').val('');
             $('input[name=c]').val('');
+            $('input[name=a]').select();
         }
     });
 
@@ -309,6 +311,7 @@ $(document).ready(function() {
     $('#clearKinematic').click(function() {
         $('#kinematicWarning').css("color", "black");
         $('input[class=kinematicBox]').val('');
+        $('input[name=acceleration]').select();
     });
 
     console.log('Ready for input');
