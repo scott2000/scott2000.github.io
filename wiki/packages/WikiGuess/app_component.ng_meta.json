@@ -1,0 +1,99 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:convert",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "AppComponent"
+      }
+    ],
+    "6": "app_component.dart",
+    "7": [
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "type": {
+    "getContents": {
+      "class": "Identifier",
+      "name": "getContents",
+      "moduleUrl": "asset:WikiGuess/lib/app_component.dart",
+      "prefix": null,
+      "value": null
+    },
+    "getRandom": {
+      "class": "Identifier",
+      "name": "getRandom",
+      "moduleUrl": "asset:WikiGuess/lib/app_component.dart",
+      "prefix": null,
+      "value": null
+    },
+    "getHttp": {
+      "class": "Identifier",
+      "name": "getHttp",
+      "moduleUrl": "asset:WikiGuess/lib/app_component.dart",
+      "prefix": null,
+      "value": null
+    },
+    "getData": {
+      "class": "Identifier",
+      "name": "getData",
+      "moduleUrl": "asset:WikiGuess/lib/app_component.dart",
+      "prefix": null,
+      "value": null
+    },
+    "AppComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "my-app",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "AppComponent",
+        "moduleUrl": "asset:WikiGuess/lib/app_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h1>{{guessTitle==\"\"?\"WikiGuess\":guessTitle}}</h1>\n<h2><b>{{extraDisplay}}</b><br>\n{{extraDisplay2}}</h2>\n<input [(ngModel)]=\"guessTitle\" (keyup.enter)=\"guess()\">\n<h3>{{text}}</h3>",
+        "templateUrl": "asset:WikiGuess/lib/app_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:WikiGuess/lib/app_component.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

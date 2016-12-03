@@ -1,0 +1,5 @@
+<h1>{{guessTitle==""?"WikiGuess":guessTitle}}</h1>
+<h2><b>{{extraDisplay}}</b><br>
+{{extraDisplay2}}</h2>
+<input [(ngModel)]="guessTitle" (keyup.enter)="guess()">
+<h3>{{text}}</h3>
