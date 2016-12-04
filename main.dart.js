@@ -5668,7 +5668,7 @@ z.f="\n"
 z.z=""
 y="Points: "+z.y
 x=z.ch
-z.r=y+(x>=2?" ("+x+" in a row!)":"")+" Lives: "+z.Q
+z.r=y+(x>=3?" ("+x+" in a row!)":"")+" Lives: "+z.Q
 z.b="Loading..."
 z.bQ()}z.a=z.d
 return!0},"$1","ghY",2,0,11,21],
