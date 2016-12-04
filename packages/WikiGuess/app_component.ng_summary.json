@@ -86,7 +86,7 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 0,
-        "template": "<h1>{{loaded?concealedTitle:realTitle}}</h1>\n<h2><b>{{extraDisplay}}</b><br>\n{{loaded?getMisses():\"Press Enter to Continue\"}}</h2>\n<input [(ngModel)]=\"guessTitle\" (keyup)=\"guess($event)\">\n<h3>{{concealedText}}</h3>",
+        "template": "<h2>{{loaded?concealedTitle:realTitle}}</h2>\n<h3><b>{{extraDisplay}}</b><br>\n{{loaded?getMisses():\"Press Enter to Continue\"}}</h3>\n<input [(ngModel)]=\"guessTitle\" (keyup)=\"guess($event)\">\n<h4>{{concealedText}}</h4>",
         "templateUrl": "asset:WikiGuess/lib/app_component.html",
         "styles": [],
         "styleUrls": [
