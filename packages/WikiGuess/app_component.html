@@ -1,0 +1,5 @@
+<h1>{{loaded?concealedTitle:realTitle}}</h1>
+<h2><b>{{extraDisplay}}</b><br>
+{{loaded?getMisses():"Press Enter to Continue"}}</h2>
+<input [(ngModel)]="guessTitle" (keyup)="guess($event)">
+<h3>{{concealedText}}</h3>

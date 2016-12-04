@@ -6,6 +6,9 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     	<script src='script.js'></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script defer="" src="main.dart.js"></script>
     	<title>Scott's Site</title>
     </head>
     <body>
@@ -14,7 +17,6 @@
             <div id="home">
                 <p>This is a website I made in <span id="js">JavaScript,</span> <span id="css">CSS,</span> and <em>HTML</em>.</p>
                 <p>It can calculate tips, factor polynomials, and solve kinematic equations.</p>
-                <a href="/wiki">Click here for WikiGuess</a>
                 <span id="counter"></span><p>Welcome to my website. -Scott</p>
             </div>
             <h3>Tip Calculator</h3>
@@ -39,6 +41,12 @@
                     <tr><td class="kinematicLabel">Time</td><td><input type="text" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 45' name="time" class="kinematicBox"/> s</td></tr>
                     <tr><td><button id="submitKinematic">Calculate</button></td><td><button id="clearKinematic">Clear</button></td></tr>
                 </table>
+            </div>
+            <h3>WikiGuess</h3>
+            <div id="wikiGuess">
+                <wiki-guess>
+                    Loading...
+                </wiki-guess>
             </div>
         </div>
     </body>
